@@ -240,7 +240,7 @@ def test_mcca_n_components():
     mcca = MCCA(n_components=n_features+1)
     with pytest.raises(AttributeError):
         mcca.n_components_
-    with pytest.warns(None):
+    with pytest.warns():
         mcca.fit(Xs)
     assert mcca.n_components_ == n_features
     for load in mcca.loadings_:
@@ -253,7 +253,7 @@ def test_kmcca_n_components():
     kmcca = KMCCA(n_components=n_features+1)
     with pytest.raises(AttributeError):
         kmcca.n_components_
-    with pytest.warns(None):
+    with pytest.warns():
         kmcca.fit(Xs)
     assert kmcca.n_components_ == n_features
     for load in kmcca.dual_vars_:
